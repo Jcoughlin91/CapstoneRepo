@@ -1,4 +1,5 @@
 export default {
   header: "My Bio Page",
-  view: "Bio"
+  view: "Bio",
+  weather: {}
 };

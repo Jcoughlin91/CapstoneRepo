@@ -40,40 +40,22 @@ router.hooks({
                 const kelvinToFahrenheit = kelvinTemp =>
                   Math.round((kelvinTemp - 273.15) * (9 / 5) + 32);
 
-                store.Home.weather = {};
-                store.Home.weather.city = response.data.name;
-                store.Home.weather.temp = kelvinToFahrenheit(
+                store.Bio.weather = {};
+                store.Bio.weather.city = response.data.name;
+                store.Bio.weather.temp = kelvinToFahrenheit(
                   response.data.main.temp
                 );
-                store.Home.weather.feelsLike = kelvinToFahrenheit(
+                store.Bio.weather.feelsLike = kelvinToFahrenheit(
                   response.data.main.feels_like
                 );
-                store.Home.weather.description = response.data.weather[0].main;
+                store.Bio.weather.description = response.data.weather[0].main;
                 done();
               })
               .catch(err => console.log(err));
             break;
           }
-    // Add a switch case statement to handle multiple routes
-    switch (view) {
-      case "Pizza": {
-        axios
-          .get(`${process.env.PIZZA_PLACE_API_URL}`)
-          .then(response => {
-            store.Pizza.pizzas = response.data;
-            done();
-          })
-          .catch(error => {
-            console.log("It puked", error);
-          });
-        break;
-      }
-      default: {
-        done();
-      }
-    }
-  }
-});
+done();
+
 router
   .on({
     "/": () => render(),
