@@ -53,7 +53,9 @@ router.hooks({
           .catch((err) => console.log(err));
         break;
       }
-      done();
+default: {
+  done ();
+};
 
 // router.hooks({
 //   before: (done, params) => {
