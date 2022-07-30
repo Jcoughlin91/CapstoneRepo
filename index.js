@@ -23,21 +23,21 @@ function afterRender() {
     document.querySelector("nav > ul").classList.toggle("hidden--mobile");
   });
 }
+
 router.hooks({
   before: (done, params) => {
     const view =
       params && params.data && params.data.view
         ? capitalize(params.data.view)
-        : “Bio”;
-    // Add a switch case statement to handle multiple routes
+        : "Bio";
     switch (view) {
-      case “Bio”: {
+      case "Bio": {
         axios
           .get(
             `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&q=st%20louis`
           )
-          .then((response) => {
-            const kelvinToFahrenheit = (kelvinTemp) =>
+          .then(response => {
+            const kelvinToFahrenheit = kelvinTemp =>
               Math.round((kelvinTemp - 273.15) * (9 / 5) + 32);
             store.Bio.weather = {};
             store.Bio.weather.city = response.data.name;
@@ -50,45 +50,15 @@ router.hooks({
             store.Bio.weather.description = response.data.weather[0].main;
             done();
           })
-          .catch((err) => console.log(err));
+          .catch(err => console.log(err));
         break;
       }
-default: {
-  done ();
-};
-
-// router.hooks({
-//   before: (done, params) => {
-//     const view =
-//       params && params.data && params.data.view
-//         ? capitalize(params.data.view)
-//         : "Bio";
-//         switch (view) {
-//           case "Home": {
-//             axios
-//               .get(
-//                 `https://api.openweathermap.org/data/2.5/weather?appid=${process.env.OPEN_WEATHER_MAP_API_KEY}&q=st%20louis`
-//               )
-//               .then(response => {
-//                 const kelvinToFahrenheit = kelvinTemp =>
-//                   Math.round((kelvinTemp - 273.15) * (9 / 5) + 32);
-
-//                 store.Bio.weather = {};
-//                 store.Bio.weather.city = response.data.name;
-//                 store.Bio.weather.temp = kelvinToFahrenheit(
-//                   response.data.main.temp
-//                 );
-//                 store.Bio.weather.feelsLike = kelvinToFahrenheit(
-//                   response.data.main.feels_like
-//                 );
-//                 store.Bio.weather.description = response.data.weather[0].main;
-//                 done();
-//               })
-//               .catch(err => console.log(err));
-//             break;
-//           }
-// done();
-
+      default: {
+        done();
+      }
+    }
+  }
+});
 router
   .on({
     "/": () => render(),
