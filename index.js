@@ -14,10 +14,10 @@ function render(state = store.Bio) {
     ${Footer()}
   `;
   router.updatePageLinks();
-  afterRender();
+  afterRender(state);
 }
 
-function afterRender() {
+function afterRender(state) {
   // add menu toggle to bars icon in nav bar
   document.querySelector(".fa-bars").addEventListener("click", () => {
     document.querySelector("nav > ul").classList.toggle("hidden--mobile");
@@ -48,6 +48,27 @@ router.hooks({
               response.data.main.feels_like
             );
             store.Bio.weather.description = response.data.weather[0].main;
+            done();
+          })
+          .catch(err => console.log(err));
+        break;
+      }
+
+      case "Data": {
+        axios
+          //.get(`https://api.astronomyapi.com/api/v2/bodies`, {
+          .get(
+            `https://api.astronomyapi.com/api/v2/bodies/positions?latitude=38.624691&longitude=-90.184776&from_date=2017-12-20&to_date=2017-12-21&time=08:00:00&elevation=0`,
+            {
+              auth: {
+                username: process.env.BODIES_USERNAME,
+                password: process.env.BODIES_PASSWORD
+              }
+            }
+          )
+          .then(response => {
+            console.log(response.data);
+            store.Data.bodies = response.data.data.bodies;
             done();
           })
           .catch(err => console.log(err));

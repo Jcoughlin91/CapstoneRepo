@@ -1,4 +1,5 @@
 export default {
   header: "Data",
-  view: "Data"
+  view: "Data",
+  bodies: []
 };
