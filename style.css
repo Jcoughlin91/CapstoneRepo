@@ -1,0 +1,41 @@
+@media (min-width: 1000px) {
+  nav > .fa-bars {
+    display: none;
+  }
+}
+@media (max-width: 1000px) {
+  .hidden--mobile {
+    display: none;
+  }
+
+}
+@media (min-width: 1000px) {
+nav {
+display: flex;
+align-items: center;
+flex-direction: column;
+padding: 1rem;
+}
+nav > ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #b03d3d;
+}
+nav > ul > li {
+float: left;
+}
+nav > ul > li:hover {
+background-color: #71719a;
+}
+nav > ul > li a {
+display: block;
+color: #ced2d6;
+text-align: center;
+padding: 1rem;
+text-decoration: none;
+}
+}
+
+body{background: rgb(68, 75, 169) ;}

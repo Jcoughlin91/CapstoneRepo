@@ -1,7 +1,7 @@
 import { Header, Nav, Main, Footer } from "./components";
 import * as store from "./store";
 import Navigo from "navigo";
-import { capitalize } from "lodash";
+import { capitalize, map } from "lodash";
 import axios from "axios";
 
 const router = new Navigo("/");
@@ -22,6 +22,62 @@ function afterRender(state) {
   document.querySelector(".fa-bars").addEventListener("click", () => {
     document.querySelector("nav > ul").classList.toggle("hidden--mobile");
   });
+
+
+
+
+
+  // if (state.view === "Order") {
+  //   document.querySelector("form").addEventListener("submit", event => {
+  //     event.preventDefault();
+
+  //     const inputList = event.target.elements;
+  //     console.log("Input Element List", inputList);
+
+  //     const toppings = [];
+  //     // Interate over the toppings input group elements
+  //     for (let input of inputList.toppings) {
+  //       // If the value of the checked attribute is true then add the value to the toppings array
+  //       if (input.checked) {
+  //         toppings.push(input.value);
+  //       }
+  //     }
+
+  //     const requestData = {
+  //       customer: inputList.customer.value,
+  //       crust: inputList.crust.value,
+  //       cheese: inputList.cheese.value,
+  //       sauce: inputList.sauce.value,
+  //       toppings: toppings
+  //     };
+  //     console.log("request Body", requestData);
+
+  //     axios
+  //       .post(`${process.env.PIZZA_PLACE_API_URL}`, requestData)
+  //       .then(response => {
+  //         // Push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
+  //         store.Pizza.pizzas.push(response.data);
+  //         router.navigate("/Pizza");
+  //       })
+  //       .catch(error => {
+  //         console.log("It puked", error);
+  //       });
+  //   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 router.hooks({
@@ -67,8 +123,18 @@ router.hooks({
             }
           )
           .then(response => {
-            console.log(response.data);
-            store.Data.bodies = response.data.data.bodies;
+            let data = response.data.data.table.rows;
+            console.log(data);
+            const bodies = data.map(element => {
+              return {
+                name: element.entry.name,
+                position: element.cells[0].position.constellation.name,
+                distance: element.cells[0].distance.fromEarth.km
+              };
+            });
+            console.log(bodies);
+            store.Data.bodies = bodies;
+            // store.Data.bodies.data = body.data.table.rows;
             done();
           })
           .catch(err => console.log(err));
