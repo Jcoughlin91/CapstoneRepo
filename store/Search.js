@@ -1,4 +1,5 @@
 export default {
   header: "Search",
-  view: "Search"
+  view: "Search",
+  searchdata: []
 };

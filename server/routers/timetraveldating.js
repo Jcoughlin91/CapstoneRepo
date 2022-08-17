@@ -4,8 +4,8 @@ const router = Router();
 
 // Create record in MongoDB Atlas using Mongoose.js ORM
 router.post("/", (request, response) => {
-  const newPizza = new timetravel(request.body);
-  newPizza.save((error, record) => {
+  const ttDating = new timetravel(request.body);
+  ttDating.save((error, record) => {
     if (error) return response.status(500).json(error);
     return response.json(record);
   });
@@ -41,10 +41,12 @@ router.put("/:id", (request, response) => {
     {
       $set: {
         // Take note that the customer is not included, so it can't
-        crust: body.crust,
-        cheese: body.cheese,
-        sauce: body.sauce,
-        toppings: body.toppings
+        question1: body.question1,
+        aboutme: body.aboutme,
+        secretinfo: body.secretinfo,
+        preferences: body.preferences,
+        timeperiod: body.timeperiod,
+        meet: body.meet
       }
     },
     {

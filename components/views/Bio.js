@@ -17,33 +17,36 @@ export default st => html`
         >
       </select>
     </div>
-    <label for="about-me"
-      >Please describe yourself. Feel free to write as much as you need.</label
-    >
-    <textarea name="about-me" id="about-me"></textarea>
+    <div>
+      <label for="aboutme"
+        >Please describe yourself. Feel free to write as much as you
+        need.</label
+      >
+      <textarea name="aboutme" id="aboutme"></textarea>
 
-    <label for="about-me">
-      Secret info section. Please share a secret about yourself that will allow
-      the time traveler to authenticate himself or herself to you.
-    </label>
-    <textarea name="about-me" id="about-me"></textarea>
+      <label for="secretinfo">
+        Secret info section. Please share a secret about yourself that will
+        allow the time traveler to authenticate himself or herself to you.
+      </label>
+      <textarea name="secretinfo" id="secretinfo"></textarea>
 
-    <label for="preferences">
-      What is your type? Do you have any dating preferences?</label
-    >
-    <textarea name="about-me" id="about-me"></textarea>
+      <label for="preferences">
+        What is your type? Do you have any dating preferences?</label
+      >
+      <textarea name="preferences" id="preferences"></textarea>
 
-    <label for="time period">
-      What time period are you most attracted towards?</label
-    >
-    <textarea name="about-me" id="about-me"></textarea>
+      <label for="timeperiod">
+        What time period are you most attracted towards?</label
+      >
+      <textarea name="timeperiod" id="timeperiod"></textarea>
 
-    <label for="How do you want to meet?">
-      How do you want to meet? Describe your location, exact time, clothing
-      description etc. Any info on how exactly you would like to meet the time
-      traveler?
-    </label>
-    <textarea name="about-me" id="about-me"></textarea>
-    <input type="submit" name="submit" />
+      <label for="meet">
+        How do you want to meet? Describe your location, exact time, clothing
+        description etc. Any info on how exactly you would like to meet the time
+        traveler?
+      </label>
+      <textarea name="meet" id="meet"></textarea>
+      <input type="submit" name="submit" />
+    </div>
   </form>
 `;

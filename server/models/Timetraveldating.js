@@ -1,28 +1,35 @@
 const mongoose = require("mongoose");
 
-const pizzaSchema = new mongoose.Schema({
-  customer: {
+const ttSchema = new mongoose.Schema({
+  aboutme: {
     type: String,
     required: true,
     validate: /^[A-Za-z0-9 ]*$/
   },
-  crust: {
+  question1: {
     type: String,
     required: true,
-    enum: ["thin", "chicago", "deep-dish", "hella-thick"]
+    enum: ["I am a time traveler", "I am interested in dating time travelers"]
   },
-  cheese: {
+  secretinfo: {
     type: String,
     validate: /^[A-Za-z0-9 ]*$/
   },
-  sauce: {
+  preferences: {
+    type: String,
+    validate: /^[A-Za-z0-9 ]*$/
+  },
+  timeperiod: {
+    type: String,
+    validate: /^[A-Za-z0-9 ]*$/
+  },
+  meet: {
     type: String,
     required: true,
     validate: /^[A-Za-z0-9 ]*$/
-  },
-  toppings: [String]
+  }
 });
 
-const Pizza = mongoose.model("Pizza", pizzaSchema);
+const timetraveldating = mongoose.model("Timetraveldating", ttSchema);
 
-module.exports = Pizza;
+module.exports = timetraveldating;
