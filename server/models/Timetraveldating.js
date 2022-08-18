@@ -30,6 +30,6 @@ const ttSchema = new mongoose.Schema({
   }
 });
 
-const timetraveldating = mongoose.model("Timetraveldating", ttSchema);
+const Timetraveldating = mongoose.model("Timetraveldating", ttSchema);
 
-module.exports = timetraveldating;
+module.exports = Timetraveldating;

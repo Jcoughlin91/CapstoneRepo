@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
+const timetraveldating = require("./routers/timetraveldating");
 const app = express();
 dotenv.config();
 
@@ -50,10 +51,11 @@ app.get("/echo:content", (request, response) => {
   so the above 2 statements could look like this as well
   app.use(express.json()).use(logging)
 */
+app.use("/timetraveldating", timetraveldating);
 
 // Request handlers go here
 // app.get("/status", (request, response) => {
 //   response.send(JSON.stringify({ message: "Service healthy" }));
 // });
 
-app.listen(4040, () => console.log("Listening on port 4040"));
+app.listen(PORT, () => console.log("Listening on port 4040"));

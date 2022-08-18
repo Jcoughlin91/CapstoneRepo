@@ -5,7 +5,9 @@
   "scripts": {
     "parcel-build": "parcel build index.html && cp _redirects ./dist/",
     "serve": "parcel index.html",
-    "app:watch": "nodemon --watch ./server -e js ./server/app.js"
+    "app:watch": "nodemon --watch ./server -e js ./server/app.js",
+    "start": "node ./server/app.js"
+
   },
   "keywords": [],
   "author": "",
@@ -27,7 +29,7 @@
     "express": "^4.18.1",
     "html-literal": "^1.1.0",
     "lodash": "^4.17.21",
-    "mongoose": "^6.5.1",
+    "mongoose": "^6.5.2",
     "navigo": "^8.11.1",
     "parcel": "^2.5",
     "yargs-parser": ">=13.1.2"

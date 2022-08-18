@@ -1,10 +1,10 @@
 const { Router } = require("express");
-const timetravel = require("../models/timetraveldating");
+const Timetraveldating = require("../models/Timetraveldating");
 const router = Router();
 
 // Create record in MongoDB Atlas using Mongoose.js ORM
 router.post("/", (request, response) => {
-  const ttDating = new timetravel(request.body);
+  const ttDating = new Timetraveldating(request.body);
   ttDating.save((error, record) => {
     if (error) return response.status(500).json(error);
     return response.json(record);
@@ -13,7 +13,7 @@ router.post("/", (request, response) => {
 
 // Get (read) all records from the collection
 router.get("/", (request, response) => {
-  timetravel.find({}, (error, record) => {
+  Timetraveldating.find({}, (error, record) => {
     if (error) return response.status(500).json(error);
     return response.json(record);
   });
@@ -21,14 +21,14 @@ router.get("/", (request, response) => {
 
 // Get a single record by ID using a query parameter
 router.get("/:id", (request, response) => {
-  timetravel.findById(request.params.id, (error, record) => {
+  Timetraveldating.findById(request.params.id, (error, record) => {
     if (error) return response.status(500).json(error);
     return response.json(record);
   });
 });
 
 router.delete("/:id", (request, response) => {
-  timetravel.findByIdAndRemove(request.params.id, {}, (error, record) => {
+  Timetraveldating.findByIdAndRemove(request.params.id, {}, (error, record) => {
     if (error) return response.status(500).json(error);
     return response.json(record);
   });
@@ -36,7 +36,7 @@ router.delete("/:id", (request, response) => {
 
 router.put("/:id", (request, response) => {
   const body = request.body;
-  timetravel.findByIdAndUpdate(
+  Timetraveldating.findByIdAndUpdate(
     request.params.id,
     {
       $set: {
