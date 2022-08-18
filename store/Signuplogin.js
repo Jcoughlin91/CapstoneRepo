@@ -1,4 +1,4 @@
 export default {
   header: "Login Page",
-  view: "Signuplogin",
+  view: "Signuplogin"
 };

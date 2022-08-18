@@ -40,7 +40,7 @@ function afterRender(state) {
       console.log("request Body", requestData);
 
       axios
-        .post(`${process.env.MONGODB}`, requestData)
+        .post(`${process.env.TT_API}`, requestData)
         .then(response => {
           // Push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
           store.Search.searchdata.push(response.data);
