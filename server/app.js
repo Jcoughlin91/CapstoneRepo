@@ -5,7 +5,7 @@ const timetraveldating = require("./routers/timetraveldating");
 const app = express();
 dotenv.config();
 
-const PORT = process.env.API_PORT || 4040; // we use || to provide a default value
+const PORT = process.env.PORT || 4040; // we use || to provide a default value
 mongoose.connect(process.env.MONGODB);
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "Connection Error:"));
