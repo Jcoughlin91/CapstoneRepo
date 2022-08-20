@@ -21,7 +21,8 @@ list-style-type: none;
 margin: 0;
 padding: 0;
 overflow: hidden;
-background-color: #b03d3d;
+background-color: #b08b6a;
+border-radius: 30px
 }
 nav > ul > li {
 float: left;
@@ -54,7 +55,37 @@ text-align: center;
 width: fit-content;
 width: auto;
 align-items:center;
+}
+table, tr, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.bioDiv {
+  display: flex;
+  flex-direction: column;
+  margin: 2em;
+  justify-content: center;
+  background-color: whitesmoke;
+
+}
+.bioposition {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 4px;
+}
+
+.bioText {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
 
 }
 
+.signupheading {
+font-size: medium;
+max-width: 80%;
+margin-left: 10;
+}
