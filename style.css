@@ -38,4 +38,23 @@ text-decoration: none;
 }
 }
 
-body{background: rgb(68, 75, 169) ;}
+body{background: whitesmoke ;}
+
+.background {background-image: url("https://www.nasa.gov/sites/default/files/thumbnails/image/main_image_star-forming_region_carina_nircam_final-5mb.jpg");
+  overflow: hidden;
+  background-size: cover;
+  width: 100vw;
+  height: 95vh;
+}
+
+.starinfo {background: whitesmoke;
+display: flex;
+justify-content: center;
+text-align: center;
+width: fit-content;
+width: auto;
+align-items:center;
+
+
+}
+

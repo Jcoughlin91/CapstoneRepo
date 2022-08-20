@@ -1,7 +1,9 @@
 import html from "html-literal";
 
 export default state => html`
+<div class = "background">
 
+<div class="starinfo">
   <table>
 
     <tr>
@@ -20,8 +22,8 @@ export default state => html`
     )}
 
   </table>
-
+  </div>
   </tr>
 
-  <h1>Hello</h1>
+  </div>
 `;

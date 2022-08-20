@@ -1,6 +1,6 @@
 export default [
-  { title: "Signuplogin", text: "My Philosophy" },
-  { title: "Bio", text: "Bio" },
-  { title: "Search", text: "Search" },
-  { title: "Data", text: "Data" }
+  { title: "Signuplogin", text: "Mission Statement" },
+  { title: "Bio", text: "Profile Information" },
+  { title: "Search", text: "Temporal Bachelors and Bachelorettes" },
+  { title: "Data", text: "Stellar Data" }
 ];
